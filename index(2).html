@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erwan Davydoff — Cybersécurité & Réseaux</title>
+  <meta name="description" content="Erwan Davydoff — Étudiant Bac Pro CIEL, cybersécurité, réseaux, électronique. Brunoy 91.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-blur"></div>
+<div class="noise"></div>
+
+<!-- ══ NAV ══ -->
+<nav id="nav">
+  <a href="#hero" class="nav-brand"><span class="brand-slash">//</span> ED</a>
+  <ul class="nav-menu">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#experience">Expériences</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="CV_Professionnel_Simple_Beige_et_Noir-2.pdf" download class="nav-cta">↓ CV</a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu"><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <ul>
+    <li><a href="#about" onclick="closeMobile()">À propos</a></li>
+    <li><a href="#skills" onclick="closeMobile()">Skills</a></li>
+    <li><a href="#projects" onclick="closeMobile()">Projets</a></li>
+    <li><a href="#experience" onclick="closeMobile()">Expériences</a></li>
+    <li><a href="#contact" onclick="closeMobile()">Contact</a></li>
+    <li><a href="CV_Professionnel_Simple_Beige_et_Noir-2.pdf" download>↓ Télécharger CV</a></li>
+  </ul>
+</div>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="hero">
+
+  <!-- SVG RÉSEAU / SERVEUR DE FOND -->
+  <svg class="hero-bg-svg" viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- Lignes de connexion réseau -->
+    <g stroke="#00e87a" stroke-width="0.5" opacity="0.18" class="net-lines">
+      <!-- tronc principal -->
+      <line x1="900" y1="100" x2="1050" y2="200"/>
+      <line x1="1050" y1="200" x2="1100" y2="350"/>
+      <line x1="1100" y1="350" x2="980" y2="480"/>
+      <line x1="980" y1="480" x2="820" y2="500"/>
+      <line x1="820" y1="500" x2="760" y2="380"/>
+      <line x1="760" y1="380" x2="900" y2="100"/>
+      <!-- branches -->
+      <line x1="900" y1="100" x2="800" y2="60"/>
+      <line x1="1050" y1="200" x2="1150" y2="160"/>
+      <line x1="1100" y1="350" x2="1180" y2="400"/>
+      <line x1="980" y1="480" x2="1020" y2="580"/>
+      <line x1="820" y1="500" x2="700" y2="560"/>
+      <line x1="760" y1="380" x2="660" y2="320"/>
+      <!-- lignes secondaires -->
+      <line x1="850" y1="280" x2="760" y2="380"/>
+      <line x1="850" y1="280" x2="900" y2="100"/>
+      <line x1="850" y1="280" x2="1050" y2="200"/>
+      <line x1="950" y1="430" x2="980" y2="480"/>
+      <line x1="950" y1="430" x2="820" y2="500"/>
+      <line x1="950" y1="430" x2="1100" y2="350"/>
+    </g>
+
+    <!-- Noeuds réseau (cercles) -->
+    <g fill="none" stroke="#00e87a" filter="url(#glow)">
+      <circle cx="900" cy="100" r="5" stroke-width="1.5" opacity="0.7" class="node-pulse"/>
+      <circle cx="1050" cy="200" r="4" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="1100" cy="350" r="6" stroke-width="2" opacity="0.8" class="node-pulse"/>
+      <circle cx="980" cy="480" r="4" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="820" cy="500" r="5" stroke-width="1.5" opacity="0.7"/>
+      <circle cx="760" cy="380" r="4" stroke-width="1.5" opacity="0.6"/>
+      <circle cx="850" cy="280" r="7" stroke-width="2" opacity="0.9" class="node-pulse"/>
+      <circle cx="950" cy="430" r="5" stroke-width="1.5" opacity="0.7"/>
+      <!-- noeuds extrêmes -->
+      <circle cx="800" cy="60" r="3" stroke-width="1" opacity="0.4"/>
+      <circle cx="1150" cy="160" r="3" stroke-width="1" opacity="0.4"/>
+      <circle cx="1180" cy="400" r="3" stroke-width="1" opacity="0.4"/>
+      <circle cx="1020" cy="580" r="3" stroke-width="1" opacity="0.4"/>
+      <circle cx="700" cy="560" r="3" stroke-width="1" opacity="0.4"/>
+      <circle cx="660" cy="320" r="3" stroke-width="1" opacity="0.4"/>
+    </g>
+
+    <!-- SERVER RACK (droite) -->
+    <g transform="translate(940, 150)" opacity="0.22" fill="none" stroke="#38d2ff" stroke-width="1">
+      <!-- châssis -->
+      <rect x="0" y="0" width="120" height="200" rx="3" stroke-width="1.5"/>
+      <!-- unités rack -->
+      <rect x="6" y="8" width="108" height="16" rx="1"/>
+      <rect x="6" y="28" width="108" height="16" rx="1"/>
+      <rect x="6" y="48" width="108" height="16" rx="1"/>
+      <rect x="6" y="68" width="108" height="16" rx="1"/>
+      <rect x="6" y="88" width="108" height="16" rx="1"/>
+      <rect x="6" y="108" width="108" height="32" rx="1"/><!-- serveur 2U -->
+      <rect x="6" y="144" width="108" height="16" rx="1"/>
+      <rect x="6" y="164" width="108" height="16" rx="1"/>
+      <rect x="6" y="184" width="108" height="10" rx="1"/>
+      <!-- LEDs sur chaque unité -->
+      <circle cx="14" cy="16" r="2" fill="#00e87a" stroke="none" opacity="0.9"/>
+      <circle cx="14" cy="36" r="2" fill="#00e87a" stroke="none" opacity="0.7"/>
+      <circle cx="14" cy="56" r="2" fill="#00e87a" stroke="none" opacity="0.9"/>
+      <circle cx="14" cy="76" r="2" fill="#ffba00" stroke="none" opacity="0.8"/>
+      <circle cx="14" cy="96" r="2" fill="#00e87a" stroke="none" opacity="0.6"/>
+      <circle cx="14" cy="124" r="2" fill="#38d2ff" stroke="none" opacity="0.9"/>
+      <circle cx="14" cy="152" r="2" fill="#00e87a" stroke="none" opacity="0.7"/>
+      <circle cx="14" cy="172" r="2" fill="#00e87a" stroke="none" opacity="0.5"/>
+      <!-- ports réseau sur serveur 2U -->
+      <rect x="90" y="112" width="8" height="6" rx="1"/>
+      <rect x="100" y="112" width="8" height="6" rx="1"/>
+      <rect x="90" y="120" width="8" height="6" rx="1"/>
+      <rect x="100" y="120" width="8" height="6" rx="1"/>
+    </g>
+
+    <!-- CIRCUIT / PCB (coin bas droite) -->
+    <g transform="translate(780, 450)" opacity="0.14" stroke="#9d6eff" fill="none" stroke-width="0.8">
+      <!-- pistes PCB -->
+      <polyline points="0,80 30,80 30,40 80,40"/>
+      <polyline points="80,40 80,10 140,10"/>
+      <polyline points="30,80 30,120 90,120 90,90 150,90"/>
+      <polyline points="150,90 150,60 200,60"/>
+      <polyline points="200,60 200,30 240,30"/>
+      <polyline points="80,40 120,40 120,70 180,70"/>
+      <!-- composants (carrés = CI) -->
+      <rect x="75" y="5" width="30" height="14" rx="1" stroke-width="1.2"/>
+      <rect x="145" y="55" width="36" height="20" rx="1" stroke-width="1.2"/>
+      <rect x="235" y="24" width="20" height="14" rx="1" stroke-width="1.2"/>
+      <!-- via (cercles traversants) -->
+      <circle cx="80" cy="40" r="3"/>
+      <circle cx="150" cy="90" r="3"/>
+      <circle cx="30" cy="80" r="2.5"/>
+    </g>
+
+    <!-- SHIELD sécurité (flottant) -->
+    <g transform="translate(1080, 60)" opacity="0.12" fill="none" stroke="#00e87a" stroke-width="1.2">
+      <path d="M20,0 L40,8 L40,26 Q40,38 20,48 Q0,38 0,26 L0,8 Z"/>
+      <path d="M10,24 L17,32 L30,18" stroke-width="2"/>
+    </g>
+
+    <!-- Points data flottants -->
+    <g fill="#00e87a" opacity="0.25">
+      <circle cx="620" cy="200" r="1.5"/>
+      <circle cx="640" cy="180" r="1"/>
+      <circle cx="680" cy="220" r="1.5"/>
+      <circle cx="700" cy="195" r="1"/>
+      <circle cx="720" cy="240" r="2"/>
+      <circle cx="740" cy="210" r="1"/>
+      <circle cx="750" cy="260" r="1.5"/>
+    </g>
+  </svg>
+
+  <div class="hero-container">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span>Disponible · Stage Informatique</span>
+      <span class="eyebrow-dot"></span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="name-line">Erwan</span>
+      <span class="name-line outline">Davydoff</span>
+    </h1>
+
+    <div class="hero-descriptor">
+      <span class="desc-item">Cybersécurité</span>
+      <span class="desc-sep">·</span>
+      <span class="desc-item">Réseaux</span>
+      <span class="desc-sep">·</span>
+      <span class="desc-item">Électronique</span>
+      <span class="desc-sep">·</span>
+      <span class="desc-item accent">16 ans</span>
+    </div>
+
+    <p class="hero-lead">
+      Étudiant <mark>Bac Pro CIEL</mark> au Lycée Georges Brassens, Évry.<br>
+      FortiGate, API FortiManager, pentest, Linux &mdash; de vraies mains sur de vraies infras.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#experience" class="btn btn-fill">Voir mon parcours</a>
+      <a href="#contact" class="btn btn-line">Me contacter</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">2</span><span class="stat-l">Stages réalisés</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-n">847</span><span class="stat-l">Règles migrées</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-n">12</span><span class="stat-l">Ans de judo</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-n">1er</span><span class="stat-l">Dan Karaté</span></div>
+    </div>
+  </div>
+
+  <!-- Terminal flottant -->
+  <div class="hero-terminal" id="hero-terminal">
+    <div class="term-header">
+      <div class="term-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+      <span class="term-label">erwan@kali: ~</span>
+    </div>
+    <div class="term-body" id="term-output"></div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Défiler</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>FortiGate</span><span class="mx">✦</span><span>Cybersécurité</span><span class="mx">✦</span>
+    <span>Python</span><span class="mx">✦</span><span>Pentest</span><span class="mx">✦</span>
+    <span>Linux</span><span class="mx">✦</span><span>Réseaux</span><span class="mx">✦</span>
+    <span>Bac Pro CIEL</span><span class="mx">✦</span><span>Électronique</span><span class="mx">✦</span>
+    <span>API REST</span><span class="mx">✦</span><span>Wireshark</span><span class="mx">✦</span>
+    <span>FortiGate</span><span class="mx">✦</span><span>Cybersécurité</span><span class="mx">✦</span>
+    <span>Python</span><span class="mx">✦</span><span>Pentest</span><span class="mx">✦</span>
+    <span>Linux</span><span class="mx">✦</span><span>Réseaux</span><span class="mx">✦</span>
+    <span>Bac Pro CIEL</span><span class="mx">✦</span><span>Électronique</span><span class="mx">✦</span>
+    <span>API REST</span><span class="mx">✦</span><span>Wireshark</span><span class="mx">✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section id="about" class="section reveal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-num">01</span><span class="label-slash">//</span><span>À propos</span>
+    </div>
+    <div class="about-layout">
+      <div class="about-left">
+        <h2 class="section-title">Un profil atypique,<br><em>des vraies compétences.</em></h2>
+        <div class="about-body">
+          <p>Bonjour, je suis <strong>Erwan Davydoff</strong>, 16 ans, basé à Brunoy (91800). Actuellement en Bac Pro <strong>CIEL</strong> — Cybersécurité, Informatique & Réseaux, Électronique au Lycée Georges Brassens, Évry.</p>
+          <p>Mon parcours est concret : j'ai configuré des <strong>FortiGate</strong>, participé à une migration de pare-feux chez <strong>VINCI ÉNERGIES</strong> et développé un script <strong>Python via l'API FortiManager</strong> pour automatiser la migration de 847 règles. Ce ne sont pas des projets scolaires — c'est du travail réel.</p>
+          <p>En dehors de l'informatique, je pratique le <strong>judo</strong> depuis 12 ans (ceinture marron, compétiteur) et le <strong>karaté</strong> depuis 8 ans (ceinture noire 1er Dan). La discipline des arts martiaux forge une façon de penser : méthode, patience, adaptation sous pression.</p>
+          <p>Je recherche un <strong>stage en cybersécurité ou administration réseaux</strong>. Je veux apprendre, contribuer, progresser dans un environnement exigeant.</p>
+        </div>
+        <div class="about-contact-quick">
+          <a href="mailto:Erwan.davydoff@gmail.com" class="quick-link">✉ Erwan.davydoff@gmail.com</a>
+          <a href="tel:0664495729" class="quick-link">☎ 06 64 49 57 29</a>
+          <a href="https://github.com/erwandavydoff-spec" target="_blank" rel="noopener" class="quick-link">⌥ erwandavydoff-spec</a>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="info-table">
+          <div class="info-r"><span class="ik">age</span><span class="iv green">16 ans</span></div>
+          <div class="info-r"><span class="ik">localisation</span><span class="iv">Brunoy, 91800</span></div>
+          <div class="info-r"><span class="ik">formation</span><span class="iv">Bac Pro CIEL</span></div>
+          <div class="info-r"><span class="ik">statut</span><span class="iv green">STAGE · OPEN</span></div>
+          <div class="info-r"><span class="ik">stages</span><span class="iv blue">2 réalisés</span></div>
+          <div class="info-r"><span class="ik">anglais</span><span class="iv">B1</span></div>
+          <div class="info-r"><span class="ik">espagnol</span><span class="iv">A2</span></div>
+          <div class="info-r"><span class="ik">judo</span><span class="iv">12 ans · ceinture marron</span></div>
+          <div class="info-r"><span class="ik">karaté</span><span class="iv amber">8 ans · ceinture noire 1er Dan</span></div>
+          <div class="info-r"><span class="ik">github</span><span class="iv blue">erwandavydoff-spec</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SKILLS ══════════════════════ -->
+<section id="skills" class="section reveal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-num">02</span><span class="label-slash">//</span><span>Stack technique</span>
+    </div>
+    <h2 class="section-title">Ce que je maîtrise<br><em>et ce que j'apprends.</em></h2>
+
+    <!-- LOGOS GRID -->
+    <div class="logos-grid">
+
+      <!-- Catégorie Réseaux & Sécurité -->
+      <div class="logo-category">
+        <span class="cat-label net-lbl">🌐 Réseaux & Firewall</span>
+        <div class="logo-row">
+
+          <!-- Fortinet (FortiGate / FortiManager) -->
+          <div class="logo-pill" title="Fortinet / FortiGate">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#EE3124" opacity="0.12"/>
+              <path d="M10 12h20v3H10zM10 18.5h20v3H10zM10 25h20v3H10z" fill="#EE3124"/>
+              <rect x="10" y="12" width="4" height="16" fill="#EE3124"/>
+            </svg>
+            <span>FortiGate</span>
+          </div>
+
+          <!-- Zscaler -->
+          <div class="logo-pill" title="Zscaler">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#005DAA" opacity="0.12"/>
+              <path d="M9 14h22l-14 12h14" stroke="#005DAA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span>Zscaler</span>
+          </div>
+
+          <!-- Wireshark -->
+          <div class="logo-pill" title="Wireshark">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#1679A7" opacity="0.12"/>
+              <ellipse cx="20" cy="20" rx="8" ry="10" stroke="#1679A7" stroke-width="1.8"/>
+              <path d="M20 10 Q26 16 20 20 Q14 24 20 30" stroke="#1679A7" stroke-width="1.5" fill="none"/>
+              <circle cx="20" cy="20" r="2.5" fill="#1679A7"/>
+            </svg>
+            <span>Wireshark</span>
+          </div>
+
+          <!-- Snort -->
+          <div class="logo-pill" title="Snort IDS">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#D32F2F" opacity="0.12"/>
+              <path d="M20 8 C10 8 8 18 12 24 C14 28 18 30 20 30 C22 30 26 28 28 24 C32 18 30 8 20 8Z" stroke="#D32F2F" stroke-width="1.8" fill="none"/>
+              <circle cx="17" cy="21" r="2" fill="#D32F2F"/>
+              <circle cx="23" cy="21" r="2" fill="#D32F2F"/>
+              <path d="M17 26 Q20 29 23 26" stroke="#D32F2F" stroke-width="1.5" fill="none"/>
+            </svg>
+            <span>Snort</span>
+          </div>
+
+          <!-- PuTTY -->
+          <div class="logo-pill" title="PuTTY">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#007ACC" opacity="0.12"/>
+              <rect x="8" y="10" width="24" height="18" rx="2" stroke="#007ACC" stroke-width="1.8"/>
+              <path d="M12 18h4M12 22h8" stroke="#007ACC" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="17" y="28" width="6" height="3" rx="1" fill="#007ACC" opacity="0.7"/>
+              <rect x="12" y="31" width="16" height="2" rx="1" fill="#007ACC" opacity="0.5"/>
+            </svg>
+            <span>PuTTY</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie Cybersécurité -->
+      <div class="logo-category">
+        <span class="cat-label sec-lbl">🔴 Cybersécurité / Pentest</span>
+        <div class="logo-row">
+
+          <!-- Kali Linux -->
+          <div class="logo-pill" title="Kali Linux">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#2E7BD6" opacity="0.12"/>
+              <path d="M20 8L10 28h7l3-6 3 6h7z" stroke="#2E7BD6" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <circle cx="20" cy="17" r="3" fill="#2E7BD6" opacity="0.8"/>
+            </svg>
+            <span>Kali Linux</span>
+          </div>
+
+          <!-- Metasploit -->
+          <div class="logo-pill" title="Metasploit">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#E53935" opacity="0.12"/>
+              <path d="M20 9l9 5v12l-9 5-9-5V14z" stroke="#E53935" stroke-width="1.8" fill="none"/>
+              <path d="M20 9v22M11 14l9 4 9-4" stroke="#E53935" stroke-width="1.2" opacity="0.7"/>
+            </svg>
+            <span>Metasploit</span>
+          </div>
+
+          <!-- Burp Suite -->
+          <div class="logo-pill" title="Burp Suite">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#FF6633" opacity="0.12"/>
+              <circle cx="20" cy="20" r="10" stroke="#FF6633" stroke-width="2"/>
+              <path d="M14 20 Q17 14 20 20 Q23 26 26 20" stroke="#FF6633" stroke-width="1.8" fill="none"/>
+              <circle cx="14" cy="20" r="2" fill="#FF6633"/>
+              <circle cx="26" cy="20" r="2" fill="#FF6633"/>
+            </svg>
+            <span>Burp Suite</span>
+          </div>
+
+          <!-- Nmap -->
+          <div class="logo-pill" title="Nmap">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#00BCD4" opacity="0.12"/>
+              <path d="M20 10 L30 28 H10 Z" stroke="#00BCD4" stroke-width="1.8" fill="none"/>
+              <line x1="20" y1="10" x2="20" y2="28" stroke="#00BCD4" stroke-width="1" opacity="0.6"/>
+              <circle cx="10" cy="28" r="2.5" fill="#00BCD4"/>
+              <circle cx="30" cy="28" r="2.5" fill="#00BCD4"/>
+              <circle cx="20" cy="10" r="2.5" fill="#00BCD4"/>
+            </svg>
+            <span>Nmap</span>
+          </div>
+
+          <!-- SQLmap -->
+          <div class="logo-pill" title="SQLmap">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#CC3333" opacity="0.12"/>
+              <ellipse cx="20" cy="14" rx="10" ry="5" stroke="#CC3333" stroke-width="1.5" fill="none"/>
+              <path d="M10 14v12c0 2.8 4.5 5 10 5s10-2.2 10-5V14" stroke="#CC3333" stroke-width="1.5" fill="none"/>
+              <path d="M10 20c0 2.8 4.5 5 10 5s10-2.2 10-5" stroke="#CC3333" stroke-width="1" opacity="0.6"/>
+            </svg>
+            <span>SQLmap</span>
+          </div>
+
+          <!-- OWASP -->
+          <div class="logo-pill" title="OWASP">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#000000" opacity="0.12"/>
+              <circle cx="20" cy="20" r="11" stroke="#333" stroke-width="2" fill="none"/>
+              <path d="M20 9 Q26 15 26 20 Q26 25 20 31 Q14 25 14 20 Q14 15 20 9Z" fill="#333" opacity="0.5"/>
+            </svg>
+            <span>OWASP</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie Systèmes -->
+      <div class="logo-category">
+        <span class="cat-label sys-lbl">⚙️ Systèmes & Virtualisation</span>
+        <div class="logo-row">
+
+          <!-- Linux -->
+          <div class="logo-pill" title="Linux">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#FCC624" opacity="0.12"/>
+              <path d="M20 7 C15 7 13 12 13 17 L13 22 C11 23 10 25 11 27 C12 30 15 31 17 30 L17 29 C15 29 13 28 13 26 L27 26 C27 28 25 29 23 29 L23 30 C25 31 28 30 29 27 C30 25 29 23 27 22 L27 17 C27 12 25 7 20 7Z" stroke="#FCC624" stroke-width="1.2" fill="none"/>
+              <circle cx="17" cy="17" r="2" fill="#FCC624"/>
+              <circle cx="23" cy="17" r="2" fill="#FCC624"/>
+              <path d="M17 21 Q20 23.5 23 21" stroke="#FCC624" stroke-width="1.2" fill="none"/>
+              <path d="M15 29 L13 33 M25 29 L27 33" stroke="#FCC624" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Linux</span>
+          </div>
+
+          <!-- VMware -->
+          <div class="logo-pill" title="VMware">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#607078" opacity="0.12"/>
+              <rect x="8" y="12" width="24" height="16" rx="2" stroke="#607078" stroke-width="1.8"/>
+              <rect x="12" y="16" width="16" height="8" rx="1" stroke="#607078" stroke-width="1.2"/>
+              <line x1="20" y1="16" x2="20" y2="24" stroke="#607078" stroke-width="1" opacity="0.6"/>
+              <path d="M16 28 L16 30 M24 28 L24 30" stroke="#607078" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="30" x2="27" y2="30" stroke="#607078" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>VMware</span>
+          </div>
+
+          <!-- VirtualBox -->
+          <div class="logo-pill" title="VirtualBox">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#183A61" opacity="0.12"/>
+              <path d="M20 10 L32 16 L32 28 L20 34 L8 28 L8 16 Z" stroke="#183A61" stroke-width="1.8" fill="none"/>
+              <path d="M20 10 L20 34 M8 16 L32 28 M32 16 L8 28" stroke="#183A61" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span>VirtualBox</span>
+          </div>
+
+          <!-- Proxmox -->
+          <div class="logo-pill" title="Proxmox">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#E57000" opacity="0.12"/>
+              <path d="M10 20 L20 10 L30 20 L20 30Z" stroke="#E57000" stroke-width="2" fill="none"/>
+              <circle cx="20" cy="20" r="4" fill="#E57000" opacity="0.6"/>
+            </svg>
+            <span>Proxmox</span>
+          </div>
+
+          <!-- PowerShell -->
+          <div class="logo-pill" title="PowerShell">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#012456" opacity="0.18"/>
+              <path d="M10 22 L22 12" stroke="#2671BE" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 28 L22 18" stroke="#2671BE" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+              <path d="M24 26 L30 26" stroke="#2671BE" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>PowerShell</span>
+          </div>
+
+          <!-- Cortex XDR -->
+          <div class="logo-pill" title="Cortex XDR (Palo Alto)">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#FA582D" opacity="0.12"/>
+              <path d="M20 10 C14 10 10 14 10 20 C10 26 14 30 20 30 C26 30 30 26 30 20 C30 14 26 10 20 10Z" stroke="#FA582D" stroke-width="1.8" fill="none"/>
+              <path d="M14 20 L18 16 L22 20 L26 16" stroke="#FA582D" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Cortex XDR</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie Dev -->
+      <div class="logo-category">
+        <span class="cat-label dev-lbl">💻 Développement</span>
+        <div class="logo-row">
+
+          <!-- Python -->
+          <div class="logo-pill" title="Python">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#3776AB" opacity="0.12"/>
+              <path d="M20 8 C14 8 12 11 12 14 L12 17 L28 17 L28 19 L16 19 C13 19 10 21 10 25 L10 27 C10 30 13 32 16 32 L20 32 C20 32 20 30 18 30 L16 30 L16 27 L28 27 L28 24 C28 21 26 19 24 19" stroke="#3776AB" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <path d="M20 32 C26 32 28 29 28 26 L28 23 L12 23 L12 21 L24 21 C27 21 30 19 30 15 L30 13 C30 10 27 8 24 8 L20 8 C20 8 20 10 22 10 L24 10 L24 13 L12 13 L12 16 C12 19 14 21 16 21" stroke="#FFD43B" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <circle cx="17" cy="11" r="1.5" fill="#3776AB"/>
+              <circle cx="23" cy="29" r="1.5" fill="#FFD43B"/>
+            </svg>
+            <span>Python</span>
+          </div>
+
+          <!-- C -->
+          <div class="logo-pill" title="Langage C">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#A8B9CC" opacity="0.15"/>
+              <path d="M26 14 C22 10 14 12 12 20 C10 28 16 32 22 31 C26 30 28 27 28 24" stroke="#A8B9CC" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span>C</span>
+          </div>
+
+          <!-- MySQL -->
+          <div class="logo-pill" title="MySQL">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#00758F" opacity="0.12"/>
+              <ellipse cx="20" cy="14" rx="10" ry="5" stroke="#00758F" stroke-width="1.5" fill="none"/>
+              <path d="M10 14 L10 26 C10 28.8 14.5 31 20 31 C25.5 31 30 28.8 30 26 L30 14" stroke="#00758F" stroke-width="1.5" fill="none"/>
+              <path d="M10 20 C10 22.8 14.5 25 20 25 C25.5 25 30 22.8 30 20" stroke="#00758F" stroke-width="1" opacity="0.7"/>
+            </svg>
+            <span>MySQL</span>
+          </div>
+
+          <!-- HTML/CSS -->
+          <div class="logo-pill" title="HTML & CSS">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#E34F26" opacity="0.12"/>
+              <path d="M9 9 L11 33 L20 36 L29 33 L31 9Z" stroke="#E34F26" stroke-width="1.5" fill="none"/>
+              <path d="M14 15 L26 15 L25 24 L20 26 L15 24 L14.5 19 L23.5 19" stroke="#E34F26" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+            </svg>
+            <span>HTML/CSS</span>
+          </div>
+
+          <!-- API REST -->
+          <div class="logo-pill" title="API REST">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#00e87a" opacity="0.1"/>
+              <path d="M10 20 C10 14.5 14.5 10 20 10 C25.5 10 30 14.5 30 20 C30 25.5 25.5 30 20 30" stroke="#00e87a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <path d="M14 20 L22 20 M19 16 L23 20 L19 24" stroke="#00e87a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>API REST</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Catégorie Électronique -->
+      <div class="logo-category">
+        <span class="cat-label elec-lbl">⚡ Électronique</span>
+        <div class="logo-row">
+
+          <!-- Arduino -->
+          <div class="logo-pill" title="Arduino">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#00979D" opacity="0.12"/>
+              <path d="M14 20 C14 16 11 14 8 14" stroke="#00979D" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+              <path d="M26 20 C26 16 29 14 32 14" stroke="#00979D" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
+              <circle cx="14" cy="20" r="7" stroke="#00979D" stroke-width="2" fill="none"/>
+              <circle cx="26" cy="20" r="7" stroke="#00979D" stroke-width="2" fill="none"/>
+              <line x1="11" y1="20" x2="17" y2="20" stroke="#00979D" stroke-width="2" stroke-linecap="round"/>
+              <line x1="23" y1="17" x2="29" y2="17" stroke="#00979D" stroke-width="2" stroke-linecap="round"/>
+              <line x1="26" y1="14" x2="26" y2="20" stroke="#00979D" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span>Arduino</span>
+          </div>
+
+          <!-- KiCad -->
+          <div class="logo-pill" title="KiCad PCB">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#314CB0" opacity="0.12"/>
+              <rect x="8" y="12" width="24" height="16" rx="2" stroke="#314CB0" stroke-width="1.5" fill="none"/>
+              <!-- pistes PCB -->
+              <polyline points="8,18 14,18 14,14" stroke="#314CB0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <polyline points="32,22 26,22 26,28" stroke="#314CB0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <line x1="16" y1="20" x2="24" y2="20" stroke="#314CB0" stroke-width="1.2" stroke-linecap="round"/>
+              <!-- composant -->
+              <rect x="17" y="17" width="6" height="6" rx="1" stroke="#314CB0" stroke-width="1.5"/>
+            </svg>
+            <span>KiCad</span>
+          </div>
+
+          <!-- Tinkercad -->
+          <div class="logo-pill" title="Tinkercad / 3D">
+            <svg class="lico" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="6" fill="#FF6D00" opacity="0.12"/>
+              <path d="M20 10 L30 16 L30 28 L20 34 L10 28 L10 16 Z" stroke="#FF6D00" stroke-width="1.8" fill="none"/>
+              <path d="M10 16 L20 22 L30 16" stroke="#FF6D00" stroke-width="1.2" opacity="0.7"/>
+              <line x1="20" y1="22" x2="20" y2="34" stroke="#FF6D00" stroke-width="1.2" opacity="0.7"/>
+            </svg>
+            <span>Tinkercad</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROJECTS ══════════════════════ -->
+<section id="projects" class="section reveal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-num">03</span><span class="label-slash">//</span><span>Projets</span>
+    </div>
+    <h2 class="section-title">Ce que j'ai<br><em>vraiment construit.</em></h2>
+    <div class="projects-list">
+
+      <div class="project-item">
+        <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-num">01</span></div>
+        <div class="proj-content">
+          <h3>Script de migration FortiManager</h3>
+          <p>Automatisation complète de la migration de <strong>847 règles pare-feu</strong> via l'API REST FortiManager chez VINCI ÉNERGIES. Réduction du temps de migration de plusieurs jours à quelques heures.</p>
+          <div class="proj-stack"><span>Python</span><span>API REST</span><span>FortiManager</span><span>FortiGate</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-num">02</span></div>
+        <div class="proj-content">
+          <h3>Lab pentest personnel</h3>
+          <p>Infrastructure de test en réseau isolé : VMs Kali, Metasploitable, DVWA. Pratique des techniques <strong>OWASP Top 10</strong>, exploitation SQLi, XSS, bruteforce.</p>
+          <div class="proj-stack"><span>Kali Linux</span><span>Metasploit</span><span>Burp Suite</span><span>VMware</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-meta"><span class="proj-year">2025</span><span class="proj-num">03</span></div>
+        <div class="proj-content">
+          <h3>Main robotisée — Projet lycée</h3>
+          <p>Conception complète d'une main robotisée : <strong>schémas électroniques</strong>, routage PCB sur KiCad, modélisation 3D, création d'un site web de présentation.</p>
+          <div class="proj-stack"><span>KiCad</span><span>PCB</span><span>Arduino</span><span>Modélisation 3D</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-meta"><span class="proj-year">2024</span><span class="proj-num">04</span></div>
+        <div class="proj-content">
+          <h3>Configuration VLAN & FortiGate</h3>
+          <p>Mise en place de segmentation réseau VLAN avec pare-feux FortiGate chez VINCI ÉNERGIES. Analyse de trafic, documentation technique complète.</p>
+          <div class="proj-stack"><span>FortiGate</span><span>VLAN</span><span>Zscaler</span><span>Wireshark</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-meta"><span class="proj-year">2024</span><span class="proj-num">05</span></div>
+        <div class="proj-content">
+          <h3>Application gestion pizzeria</h3>
+          <p>Application de gestion des commandes et du stock créée dans le cadre d'un cours de développement.</p>
+          <div class="proj-stack"><span>HTML</span><span>CSS</span><span>Python</span></div>
+        </div>
+        <div class="proj-arrow">→</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+<section id="experience" class="section reveal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-num">04</span><span class="label-slash">//</span><span>Expériences</span>
+    </div>
+    <h2 class="section-title">Du concret,<br><em>en conditions réelles.</em></h2>
+
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-company">VINCI ÉNERGIES</h3>
+              <span class="tl-role">Technicien Réseaux & Sécurité</span>
+            </div>
+            <div class="tl-right">
+              <span class="tl-date">2025 – 2026</span>
+              <span class="tl-badge">Stage · Première</span>
+            </div>
+          </div>
+          <ul class="tl-missions">
+            <li>Configuration et gestion de pare-feux <strong>FortiGate</strong> et Zscaler</li>
+            <li>Participation à un projet de <strong>migration d'infrastructure réseau</strong></li>
+            <li>Développement d'un <strong>script Python via l'API FortiManager</strong> pour automatiser la migration de 847 règles</li>
+            <li>Administration systèmes et réseaux : VMs Linux, segmentation VLAN</li>
+            <li>Installation et sécurisation de systèmes Linux</li>
+            <li>Analyse de trafic réseau en environnement de laboratoire</li>
+          </ul>
+          <div class="tl-tech"><span>FortiGate</span><span>Zscaler</span><span>Python</span><span>API FortiManager</span><span>Linux</span><span>VMware</span><span>Wireshark</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-company">NTI NAKO</h3>
+              <span class="tl-role">Support Informatique</span>
+            </div>
+            <div class="tl-right">
+              <span class="tl-date">Sept/Oct 2025</span>
+              <span class="tl-badge">Stage · Première</span>
+            </div>
+          </div>
+          <ul class="tl-missions">
+            <li>Apprentissage des bases de <strong>Linux</strong> : terminal, gestion des fichiers et permissions</li>
+            <li><strong>Dorking</strong> : recherche d'informations publiques dans le cadre de la cybersécurité</li>
+            <li>Montage, démontage et maintenance de postes informatiques</li>
+            <li>Création et gestion de <strong>machines virtuelles</strong> (VirtualBox / VMware)</li>
+            <li>Développement de pages web en HTML, CSS, Python</li>
+            <li>Bases en réseaux : modèle OSI, Wireshark, Nmap</li>
+          </ul>
+          <div class="tl-tech"><span>Linux</span><span>VirtualBox</span><span>VMware</span><span>Wireshark</span><span>Nmap</span><span>HTML/CSS</span></div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-line"><div class="tl-dot"></div></div>
+        <div class="tl-body">
+          <div class="tl-header">
+            <div>
+              <h3 class="tl-company">ETP ELEC</h3>
+              <span class="tl-role">Technicien Électricité & Énergie</span>
+            </div>
+            <div class="tl-right">
+              <span class="tl-date">Janv/Févr & Juin 2025</span>
+              <span class="tl-badge">Stage · Seconde</span>
+            </div>
+          </div>
+          <ul class="tl-missions">
+            <li>Installation et maintenance de systèmes électriques, chauffage et climatisation</li>
+            <li>Câblage, raccordements, mise en service d'équipements électriques</li>
+            <li>Maintenance de pompes à chaleur et bornes de recharge VE</li>
+            <li>Application des normes de sécurité électrique sur chantiers</li>
+          </ul>
+          <div class="tl-tech"><span>Électricité</span><span>Climatisation</span><span>Câblage</span><span>Bornes VE</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="formation-block">
+      <div class="section-label" style="margin-bottom:2rem;">
+        <span class="label-num">05</span><span class="label-slash">//</span><span>Formation</span>
+      </div>
+      <div class="edu-cards">
+        <div class="edu-card active">
+          <span class="edu-status">En cours</span>
+          <div class="edu-years">2025 – 2027</div>
+          <h3>Bac Pro CIEL</h3>
+          <p>Cybersécurité, Informatique & Réseaux, Électronique</p>
+          <span class="edu-school">Lycée Georges Brassens · Évry-Courcouronnes</span>
+        </div>
+        <div class="edu-card">
+          <span class="edu-status done">Diplômé</span>
+          <div class="edu-years">2024 – 2025</div>
+          <h3>Seconde Pro TNE</h3>
+          <p>Transition Numérique et Énergétique</p>
+          <span class="edu-school">Lycée Frère Moreau · Boussy-Saint-Antoine</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section id="contact" class="section reveal">
+  <div class="section-inner">
+    <div class="section-label">
+      <span class="label-num">06</span><span class="label-slash">//</span><span>Contact</span>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-left">
+        <h2 class="section-title contact-title">Travaillons<br><em>ensemble.</em></h2>
+        <p class="contact-desc">Je recherche un stage en <strong>cybersécurité</strong> ou <strong>administration réseaux</strong>. Disponible en Île-de-France et remote. Je réponds sous 24h.</p>
+        <div class="contact-links">
+          <a href="mailto:Erwan.davydoff@gmail.com" class="c-link">
+            <div class="c-icon">✉</div>
+            <div class="c-info"><span class="c-label">Email</span><span class="c-val">Erwan.davydoff@gmail.com</span></div>
+            <span class="c-arr">↗</span>
+          </a>
+          <a href="tel:0664495729" class="c-link">
+            <div class="c-icon">☎</div>
+            <div class="c-info"><span class="c-label">Téléphone</span><span class="c-val">06 64 49 57 29</span></div>
+            <span class="c-arr">↗</span>
+          </a>
+          <a href="https://github.com/erwandavydoff-spec" target="_blank" rel="noopener" class="c-link">
+            <div class="c-icon">⌥</div>
+            <div class="c-info"><span class="c-label">GitHub</span><span class="c-val">erwandavydoff-spec</span></div>
+            <span class="c-arr">↗</span>
+          </a>
+          <a href="CV_Professionnel_Simple_Beige_et_Noir-2.pdf" download class="c-link">
+            <div class="c-icon">↓</div>
+            <div class="c-info"><span class="c-label">Télécharger le CV</span><span class="c-val">CV.pdf</span></div>
+            <span class="c-arr">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-right">
+        <div class="contact-terminal">
+          <div class="term-header">
+            <div class="term-dots"><span class="dot-r"></span><span class="dot-y"></span><span class="dot-g"></span></div>
+            <span class="term-label">contact.sh</span>
+          </div>
+          <div class="term-body">
+            <div class="tl"><span class="tp">❯</span><span class="tc">./contact.sh --info</span></div>
+            <span class="to green">[OK] Disponible pour un stage</span>
+            <span class="to green">[OK] Île-de-France & remote</span>
+            <span class="to blue">[INFO] Réponse sous 24h</span>
+            <br>
+            <div class="tl"><span class="tp">❯</span><span class="tc">cat contacts.txt</span></div>
+            <span class="to">email    → Erwan.davydoff@gmail.com</span>
+            <span class="to">phone    → 06 64 49 57 29</span>
+            <span class="to blue">github   → erwandavydoff-spec</span>
+            <span class="to">location → Brunoy, 91800</span>
+            <br>
+            <div class="tl"><span class="tp">❯</span><span class="tc">echo $STATUS</span></div>
+            <span class="to green">STAGE_OPEN · MOTIVATED · AVAILABLE</span>
+            <br>
+            <div class="tl"><span class="tp">❯</span><span class="cur"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand"><span class="brand-slash">//</span> Erwan Davydoff</span>
+    <span class="footer-mid">Bac Pro CIEL · Brunoy 91800 · 2025</span>
+    <span class="footer-right"><span class="ft-dot"></span> System online</span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
