@@ -850,28 +850,12 @@
         <div class="projet_box">
             <div class="gauche1">
                 <video autoplay loop muted playsinline>
-                    <source src="assets/projet1.f1c39a18.mp4" type="video/mp4">
+                    <source src="assets/AmazingHand_BasicDemo.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="droite1">
                 <div style="display:flex;gap:1.2rem;align-items:flex-start;margin-bottom:1rem;">
-                    <!-- Placeholder vidéo/photo — remplace src par ton fichier -->
-                    <div style="
-                        flex-shrink:0;width:130px;height:130px;border-radius:10px;
-                        border:1px dashed rgba(255,255,255,0.18);
-                        background:rgba(255,255,255,0.03);
-                        display:flex;flex-direction:column;align-items:center;justify-content:center;
-                        gap:0.4rem;color:rgba(255,255,255,0.25);font-size:0.7rem;
-                        letter-spacing:0.06em;text-align:center;overflow:hidden;
-                        transition:border-color 0.2s;"
-                        onmouseover="this.style.borderColor='rgba(255,255,255,0.35)'"
-                        onmouseout="this.style.borderColor='rgba(255,255,255,0.18)'">
-                        <!-- Remplace ce bloc par : <video src="..." autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;border-radius:9px;"></video> -->
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.35">
-                            <polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                        </svg>
-                        <span>Vidéo / Photo</span>
-                    </div>
+                   
                     <div>
                         <h3 data-i18n="proj1_title" style="margin-bottom:0.8rem;">Main Robotique IA • 2025</h3>
                 <p data-i18n-html="proj1_p1"></p>
@@ -1136,12 +1120,12 @@
             skills_dev: "Développement", skills_cyber: "Cybersécurité &amp; Pentest",
             skills_net: "Réseaux", skills_sys: "Systèmes &amp; Virtualisation", skills_elec: "Électronique",
             projects_title: "Mes projets.",
-            proj1_title: "Main Robotique IA • 2025",
-            proj1_p1: `Main Robotique IA est un projet de robotique open-source visant à reproduire en temps réel les mouvements d'une main humaine à l'aide d'une webcam et d'algorithmes d'intelligence artificielle.`,
-            proj1_p2: `J'ai utilisé Python, OpenCV et MediaPipe pour la détection des 21 points clés de la main. Les angles sont transmis via liaison série à un ESP32 (C/C++) qui contrôle cinq servomoteurs. Le projet inclut aussi de la conception 3D pour la structure de la main.`,
+            proj1_title: "HandTrack‑ESP32 • 2025",
+            proj1_p1: `HandTrack‑ESP32 est un projet open‑source visant à reproduire en temps réel les mouvements d’une main humaine grâce à une webcam et à des algorithmes d’intelligence artificielle.`,
+            proj1_p2: `J’utilise Python, OpenCV et MediaPipe pour détecter les 21 points clés de la main et calculer les angles de chaque doigt. Ces données sont ensuite envoyées via liaison série à un ESP32 (C/C++), qui pilote cinq servomoteurs pour animer la main robotique. Le projet inclut également la conception 3D complète de la structure mécanique, ainsi que le développement d’une interface moderne permettant la configuration complète du système : calibration des servos, réglages avancés, monitoring en temps réel et visualisation 3D interactive de la main.`,
             exp_title: "Mes expériences.",
             vinci_p1: `Lors de cette expérience chez VINCI Energies, j'ai participé à des activités liées à la cybersécurité et à l'administration réseau en environnement de production, contribuant à la configuration de pare-feux FortiGate et de la solution cloud Zscaler.`,
-            vinci_p2: `J'ai assisté les équipes dans un projet de migration d'infrastructure pare-feu, participé à la mise à jour des politiques de sécurité et été initié à l'automatisation via un script Python utilisant l'API FortiManager.`,
+            vinci_p2: `J'ai assisté les équipes dans un projet de migration d'infrastructure pare-feu, participé à la mise à jour des politiques de sécurité et été initié à l'automatisation via un script Python utilisant l'API FortiManager`,
             vinci_p3: `En parallèle, j'ai travaillé sur des tâches d'administration de systèmes et réseaux sur des environnements virtualisés Linux, notamment sur la segmentation réseau et la sécurisation de systèmes.`,
             vinci_p4: `J'ai participé à des activités d'analyse de trafic réseau à l'aide de tcpdump, ainsi qu'à des actions d'observation dans le cadre d'audits de sécurité.`,
             vinci_p5: `Enfin, j'ai contribué au montage et déploiement de postes informatiques, tout en découvrant des outils comme FortiManager, iptables, Snort, PuTTY, Cortex XDR, EasyVista et IT-Connect.`,
@@ -1171,9 +1155,9 @@
             skills_dev: "Development", skills_cyber: "Cybersecurity &amp; Pentest",
             skills_net: "Networks", skills_sys: "Systems &amp; Virtualisation", skills_elec: "Electronics",
             projects_title: "My projects.",
-            proj1_title: "Robotic AI Hand • 2025",
-            proj1_p1: `Robotic AI Hand is an open-source robotics project aimed at reproducing human hand movements in real time using a webcam and AI algorithms.`,
-            proj1_p2: `I used Python, OpenCV and MediaPipe to detect the 21 key hand points. Finger flexion angles are transmitted via serial link to an ESP32 (C/C++) controlling five servomotors. The project also includes 3D design for the hand structure.`,
+            proj1_title: "HandTrack‑ESP32• 2025",
+            proj1_p1: `HandTrack‑ESP32 is an open‑source project designed to replicate human hand movements in real time using a webcam and artificial intelligence algorithms.`,
+            proj1_p2: `I use Python, OpenCV and MediaPipe to detect the 21 keypoints of the hand and compute the angles for each finger. These values are then sent via serial communication to an ESP32 (C/C++), which drives five servomotors to animate the robotic hand. The project also includes full 3D mechanical design, as well as the development of a modern interface for complete system configuration: servo calibration, advanced settings, real‑time monitoring and an interactive 3D visualization of the hand.`,
             exp_title: "My experience.",
             vinci_p1: `During this internship at VINCI Energies, I participated in cybersecurity and network administration activities in a production environment, contributing to the configuration of FortiGate firewalls and the Zscaler cloud solution.`,
             vinci_p2: `I assisted teams in a firewall infrastructure migration project, helped update security policies, and was introduced to automation via a Python script using the FortiManager API.`,
@@ -1184,7 +1168,7 @@
             nti_p2: `I learned Linux basics (terminal, file management, permissions) and was introduced to open-source intelligence techniques (dorking) in a cybersecurity context.`,
             nti_p3: `I participated in assembling and disassembling workstations, including hardware assembly, fault diagnosis and maintenance.`,
             nti_p4: `I created and used virtual machines with VirtualBox and VMware to simulate environments, and built web pages in HTML, CSS and Python.`,
-            nti_p5: `Finally, I gained a foundation in networking (IP addressing, protocols, OSI model) and was introduced to Wireshark and Nmap for network analysis.`,
+            nti_p5: `Finally, I gained a foundation in networking (IP addressing, protocols, OSI model) and was introduced to Wireshark and Nmap for network analysis`,
             contact_title: "Contact me.",
             footer_dev: "Site developed by Erwan DAVYDOFF with HTML, CSS, JavaScript, Three.Js and ViteJs."
         },
@@ -1206,9 +1190,9 @@
             skills_dev: "Desarrollo", skills_cyber: "Ciberseguridad &amp; Pentest",
             skills_net: "Redes", skills_sys: "Sistemas &amp; Virtualización", skills_elec: "Electrónica",
             projects_title: "Mis proyectos.",
-            proj1_title: "Mano Robótica IA • 2025",
-            proj1_p1: `Mano Robótica IA es un proyecto de robótica de código abierto que reproduce en tiempo real los movimientos de una mano humana usando una webcam y algoritmos de inteligencia artificial.`,
-            proj1_p2: `Utilicé Python, OpenCV y MediaPipe para detectar los 21 puntos clave de la mano. Los ángulos de flexión se transmiten por enlace serie a un ESP32 (C/C++) que controla cinco servomotores. El proyecto también incluye diseño 3D para la estructura de la mano.`,
+            proj1_title: "HandTrack‑ESP32 • 2025",
+            proj1_p1: `HandTrack‑ESP32 es un proyecto de código abierto diseñado para reproducir en tiempo real los movimientos de una mano humana mediante una cámara web y algoritmos de inteligencia artificial.`,
+            proj1_p2: `Utilizo Python, OpenCV y MediaPipe para detectar los 21 puntos clave de la mano y calcular los ángulos de cada dedo. Estos valores se envían por comunicación serie a un ESP32 (C/C++), que controla cinco servomotores para animar la mano robótica. El proyecto también incluye el diseño mecánico 3D completo, así como el desarrollo de una interfaz moderna para la configuración total del sistema: calibración de servos, ajustes avanzados, monitoreo en tiempo real y visualización 3D interactiva de la mano.`,
             exp_title: "Mis experiencias.",
             vinci_p1: `Durante esta experiencia en VINCI Energies, participé en actividades de ciberseguridad y administración de redes en entorno de producción, contribuyendo a la configuración de cortafuegos FortiGate y la solución cloud Zscaler.`,
             vinci_p2: `Asistí a los equipos en un proyecto de migración de infraestructura de cortafuegos, actualicé políticas de seguridad y fui iniciado en la automatización mediante un script Python con la API FortiManager.`,
